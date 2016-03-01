@@ -71,13 +71,13 @@ class Extension(interface.Extension):
     description = 'Complete the common core RPM metadata fields.'
     version = '1.0.0'
     requirements = {}
-
+    
     @staticmethod
     def generate(config, spec):
         """Generate the core RPM package metadata."""
         name = config.core.name
         version = config.core.version
-        release = config.core.release
+        release = config.core.release+'%{?dist}'
         summary = config.core.summary
         group = config.core.group
         license = config.core.license
